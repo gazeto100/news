@@ -1,12 +1,11 @@
 import requests
-
-import requests
 sites = [
     'http://www.dnes.bg',
     'http://www.vesti.bg',
     'http://www.novini.bg',
     'http://www.actualno.bg',
-    'http://www.btv.bg',
+    'http://www.btvnovinite.bg',
+    'http://www.nova.bg',
 ]
 for url in sites:
     index = sites.index(url)
