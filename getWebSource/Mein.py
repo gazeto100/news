@@ -18,7 +18,7 @@ for url in sites:
     print("--------------------------------------")
     # print the first five lines of the page source
     f = open(str(index) + ".txt", "w")
-    for row in page_source[:200]:
+    for row in page_source[:2000]:
         if f.mode == 'w':
             f.write(row)
             f.write('\n')
