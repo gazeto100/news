@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Новини.бг - Последни новини от България и света - Novini.bg</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Novini.bg - Актуалните новини - новините от днес и последни новини от България и света. Информация за най-важните събития в сферата на политиката, шоубизнеса, спорта и ...">
+    <meta name="keywords" content="Новини от България, света, последни новини, новините днес, актуални новини">
+    <meta property="fb:admins" content="1134438909" />
+    <meta property="fb:app_id" content="359457038018008" />
+    <meta property="fb:pages" content="494103920610214" />
+        <meta property="og:title" content="Новини.бг - Последни новини от България и света - Novini.bg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://novini.bg/" />
+    <meta property="og:image" content="https://novini.bg/statics/assets/novini.png" />
+    <meta property="og:image:secure_url" content="https://novini.bg/statics/assets/novini.png" />
+    <meta property="og:site_name" content="Novini.bg" />
+    <meta property="og:description" content="Novini.bg - Актуалните новини - новините от днес и последни новини от България и света. Информация за най-важните събития в сферата на политиката, шоубизнеса, спорта и ..." />
+        <meta name="google-site-verification" content="4amUwlYjSIG4peALn8Lgt1W1TnKlnrDH2Wwrf3BB5CQ" />
+
+    <!-- <link rel="stylesheet" href="https://novini.bg/statics/assets/scripts/vendor/videojs/style.css?bash=24grfbsnia4op6y4vbh"/> -->
+    <link rel="stylesheet" href="https://novini.bg/statics/assets/css/main.css?bash=24grfbsnia4op6y4vbh" />
+    <link rel="stylesheet" href="https://novini.bg/statics/assets/branding/branding.css?bash=24grfbsnia4op6y4vbh" />
+    <link rel="stylesheet" href="https://novini.bg/statics/assets/css/emojionearea.min.css?bash=24grfbsnia4op6y4vbh" />
+
+    <link rel="stylesheet" href="https://novini.bg/statics/assets/spd/spd.css?bash=24grfbsnia4op6y4vbh" />
+    <script type="text/javascript" src="https://novini.bg/statics/assets/spd/spd.js?bash=24grfbsnia4op6y4vbh"></script>
+
+    <link rel="canonical" href="https://novini.bg/" />    <link rel="shortcut icon" href="https://novini.bg/statics/favicon.ico" />
+
+    <link rel="alternate" media="only screen and (max-width: 640px)" href="https://m.novini.bg/" />
+    <script>
+        var SITE_URL = "https://novini.bg/";
+        var STATIC_URL = "https://novini.bg/statics/";
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23561658-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-23561658-1', { 'allow_display_features': false, 'anonymize_ip': true });
+    </script>
+
+    <script type="text/javascript">
+        var w2g = w2g || {};
+            w2g.cmd = w2g.cmd || [];
+
+            w2g.targeting = {
+                section: ['section-0'],
+                category: ['category-0'],
+                article: ['article-0']
+            };
+        
+        
+        var getConsent = function (indexes) {
+            var cookie = getCookie('privacyPolicyS');
+            var consent = false;
+            indexes.forEach(function(key){
+                if ( cookie[key] == 1 ) {
+                    consent = true;
+                }
+                else {
+                    consent = false;
+                }
+            });
+            return consent;
+        };
+
+        var getCookie = function (name) {
+            var cookies = document.cookie.split("; ");
+            var cookie = cookies.find(function (e) {
+                return e.indexOf(name + "=") >= 0;
+            });
+
+            if (cookie) {
+                return cookie.split("=")[1];
+            } else {
+                cookie = localStorage.getItem(name);
+                if (cookie === null) {
+                    return false;
+                } else {
+                    return cookie;
+                }
+            }
+        };
+
+        var w2gInit = function w2gInit() {
+            var script = document.createElement('script');
+            script.setAttribute('src', '//lib.wtg-ads.com/lib.min.js');
+            script.setAttribute('async', true);
+            document.querySelector('head').appendChild(script);
+            
+            var consent = getConsent([1,2]);
+            if (typeof consent !== 'undefined') { //never be a undefined!
+                w2g.cmd.push(function() {
+                    w2g.run(consent);
+                });
+            }
+        };
+    </script>
+
+
+    <script type="text/javascript">
+        (function () {
+            window.aax = window.aax || {};
+            window.aax.initTime = new Date().getTime();
+            window.aax.deliverExchangeDemand = function () { };
+            window.aax.pubId = 'AAX3CLWD1';
+            window.aax.ver = 1.2;
+            window.aax.hst = window.location.hostname;
+            var aaxEndpoint = '//c.aaxads.com/aax.js?pub=' + window.aax.pubId
+            + '&hst=' + window.aax.hst + '&ver=' + window.aax.ver;
+            
+            function isSSL() {
+                return ('https:' == document.location.protocol);
+            }
+            
+            function getProtocol() {
+                return isSSL() ? 'https:' : 'http:'
+            }
+            
+            function writeSource(endpoint) {
+                var source = getProtocol() + endpoint;
+                document.write('<scr' + 'ipt type="text/javascript" src="' +
+                source + '"></scr' + 'ipt>');
+            }
+
+            writeSource(aaxEndpoint);
+        })();
+        
+    </script>
+    
+        
+
+    <link rel="manifest" href="https://novini.bg/manifest.json" />
+    <script type="text/javascript" src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+    <script>
+        var OneSignal = window.OneSignal || [];
+        OneSignal.push(function() {
+         OneSignal.init({
+                appId: "0276d154-39e6-4b12-84c8-51310095d2f0",
+                requiresUserPrivacyConsent: false,
+                autoRegister: true,
+                welcomeNotification: {
+                    "title" : "Novini.bg",
+                    "message": "Благодарим ви за абонамента",
+                },
+                notifyButton: {
+                    enable: true,
+                    displayPredicate: function(){
+                        return OneSignal.isPushNotificationsEnabled().then(function (isEnabled){ return !isEnabled; });
+                     },
+                    position: 'bottom-left',
+                    text: {
+                        'tip.state.unsubscribed': 'Получaвайте известия от Novini.bg',
+                        'tip.state.subscribed': "Абонирани сте за известия",
+                        'tip.state.blocked': "Блокирахте получаването на известия",
+                        'message.prenotify': 'Натиснете тук за абонамент за известия',
+                        'message.action.subscribed': "Благодарим за абонамента!",
+                        'message.action.resubscribed': "Абонирани сте за известия",
+                        'message.action.unsubscribed': "Изпращането на известия е прекратено",
+                        'dialog.main.title': 'Настройки на известията',
+                        'dialog.main.button.subscribe': 'Абонирайте се',
+                        'dialog.main.button.unsubscribe': 'Прекратяване на абонамента',
+                        'dialog.blocked.title': 'Отблокиране на известията',
+                        'dialog.blocked.message': 'Следвайте инструкциите, за да активирате известията:'
+                    },
+                    colors: {
+                        'circle.background': 'rgb(255,132,0)',
+                        'badge.background': 'rgb(255,132,0)',
+                        'dialog.button.background': 'rgb(255,132,0)',
+                        'dialog.button.background.hovering': 'rgb(255,132,0)',
+                    },
+                    size: 'small',
+                    prenotify: true,
+                    showCredit: false
+                }
+            });
+        });
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "url":  "https://novini.bg/",
+        "logo":  "https://novini.bg/statics/assets/img/logo.png",
+        "email": "mailto:office@novini.bg",
+        "description": "Novini.bg - Актуалните новини - новините от днес и последни новини от България и света. Информация за най-важните събития в сферата на политиката, шоубизнеса, спорта и ...",
+        "name": "Novini.bg",
+        "telephone": "+359 2 971 03 11",
+        "sameAs" : [ "https://www.facebook.com/novini.bg"],
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target":  "https://novini.bg/search?txt={ query }",
+          "query-input": "required"

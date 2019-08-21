@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>bTV Media Group - bTV</title>
+		<meta http-equiv="expires" content="now" />
+		<meta http-equiv="pragma" content="no-cache" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+
+		
+
+		
+
+		
+
+		<!-- BOF Favicons -->
+		<link rel="apple-touch-icon" sizes="60x60" href="/static/bg/microsites/btvnew/img/favicons/apple-touch-icon-60x60.png" />
+		<link rel="apple-touch-icon" sizes="72x72" href="/static/bg/microsites/btvnew/img/favicons/apple-touch-icon-72x72.png" />
+		<link rel="apple-touch-icon" sizes="76x76" href="/static/bg/microsites/btvnew/img/favicons/apple-touch-icon-76x76.png" />
+		<link rel="apple-touch-icon" sizes="114x114" href="/static/bg/microsites/btvnew/img/favicons/apple-touch-icon-114x114.png" />
+		<link rel="apple-touch-icon" sizes="120x120" href="/static/bg/microsites/btvnew/img/favicons/apple-touch-icon-120x120.png" />
+		<link rel="apple-touch-icon" sizes="144x144" href="/static/bg/microsites/btvnew/img/favicons/apple-touch-icon-144x144.png" />
+		<link rel="apple-touch-icon" sizes="152x152" href="/static/bg/microsites/btvnew/img/favicons/apple-touch-icon-152x152.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/static/bg/microsites/btvnew/img/favicons/apple-touch-icon-180x180.png" />
+		<link rel="icon" type="image/png" href="/static/bg/microsites/btvnew/img/favicons/favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="/static/bg/microsites/btvnew/img/favicons/favicon-194x194.png" sizes="194x194" />
+		<link rel="icon" type="image/png" href="/static/bg/microsites/btvnew/img/favicons/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/png" href="/static/bg/microsites/btvnew/img/favicons/android-chrome-192x192.png" sizes="192x192" />
+		<link rel="icon" type="image/png" href="/static/bg/microsites/btvnew/img/favicons/favicon-16x16.png" sizes="16x16" />
+		<link rel="manifest" href="/static/bg/microsites/btvnew/img/favicons/manifest.json" />
+		<link rel="mask-icon" href="/static/bg/microsites/btvnew/img/favicons/safari-pinned-tab.svg" color="#5bbad5" />
+		<link rel="shortcut icon" href="/static/bg/microsites/btvnew/img/favicons/favicon.ico" />
+		<meta name="msapplication-TileColor" content="#004F5A" />
+		<meta name="msapplication-TileImage" content="/static/bg/microsites/btvnew/img/favicons/mstile-144x144.png" />
+		<meta name="msapplication-config" content="/static/bg/microsites/btvnew/img/favicons/browserconfig.xml" />
+		<meta name="theme-color" content="#ffffff" />
+		<!-- EOF Favicons -->
+
+		<script type="text/javascript">
+			var ut_section_id		= "7001";
+			var site_id				= "400";
+			var article_id			= "";
+			var article_date		= "";
+			var gallery_id			= "";
+			var media_id			= "";
+			var app_lang			= "bg";
+			var section_id			= '7001';
+			var story_id			= "";
+			var player_html5_allow	= true;
+			var is_user_logged		= false;
+		</script>
+
+		<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-W2HVJV5');</script>
+		<!-- End Google Tag Manager -->
+
+		<!-- btvnew css files -->
+		<link rel="stylesheet" type="text/css" href="/static/bg/microsites/bistro/css/slick.css" />
+
+		<!-- videojs js -->
+		<link href="/static/bg/shared/vjs/video-js.css?1566398303" rel="stylesheet">
+		<link href="/static/bg/shared/vjs/videojs-contrib-ads.css?1566398303" rel="stylesheet">
+		<link href="/static/bg/shared/vjs/videojs.ima.css?1566398303" rel="stylesheet">
+
+
+		<link rel="stylesheet" type="text/css" href="/static/bg/main/css/fine-uploader.css" />
+		<link rel="stylesheet" type="text/css" href="/static/bg/shared/css/jquery.mCustomScrollbar.css" />
+		<link rel="stylesheet" type="text/css" href="/static/bg/main/css/user-registration-btv-new.css?v=1.1" />
+		<link rel="stylesheet" type="text/css" href="/static/bg/microsites/btv_new/css/btv-cme.css?v=5.0" />
+
+
+		<!-- UT :start -->
+		<script type="text/javascript">
+			var ut_params  = "?section_id=" + ((typeof(section_id) == 'undefined') ? "0" : section_id);
+				ut_params += "&article_id=" + ((typeof(article_id) == 'undefined') ? "0" : article_id);
+				ut_params += "&gallery_id=" + ((typeof(gallery_id) == 'undefined') ? "0" : gallery_id);
+				ut_params += "&media_id=" + ((typeof(media_id) == 'undefined') ? "0" : media_id);
+				ut_params += "&article_date=" + ((typeof(article_date) == 'undefined') ? "0" : article_date);
+				ut_params += "&r=" + Math.random();
+				ut_params += "&c=" + escape(document.referrer);
+			document.write("<img id='usertrack_image' src='/bin/usrtrck-new.php" + ut_params + "' alt='.' width='1' height='1' border='0' />");
+			document.write("<img id='usertrack_image' src='/bin/usrtrck-v2.php" + ut_params + "' alt='.' width='1' height='1' border='0' />");
+		</script>
+		<noscript>
+			<img src="/bin/usrtrck-new.php?c=UNKNOWN" alt="." width="1" height="1" border="0" />
+		</noscript>
+		<!-- UT :end -->
+		
+		<!-- Player JS -->
+		<script type="text/javascript" src="/static/bg/shared/vjs/video.min.js"></script>
+		<script type="text/javascript" src="/static/bg/shared/vjs/videojs-contrib-ads.js"></script>
+		<script type="text/javascript" src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+
+		<script type="text/javascript" src="/static/bg/microsites/btv_new/js/vendors.js"></script>
+		<script type="text/javascript" src="/static/bg/shared/vjs/player-v2.js?1566398303"></script>
+		<script type="text/javascript" src="https://bravo.btv.bg/bweb/dist/js/bweb.js?1566398303"></script>
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-7333893-7"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-7333893-7');
+		</script>
+
+		<!-- DFP -->
+		<link rel="stylesheet" type="text/css" href="/static/bg/shared/css/bweb-gpt.css?1566398303" />
+		<script src='https://www.googletagservices.com/tag/js/gpt.js'></script>
+		<script>
+		var dfp_site = 'btv.bg';
+		var dfp_website = 'btv';
+		var dfp_mobile = false;
+		var dfp_tags = "";
+		</script>
+		<script src='/static/bg/shared/js/bweb-gpt.js?1566398303'></script>
+		<!-- /DFP -->
+
+		<script type="text/javascript" src="/static/bg/shared/gdpr/gdpr.js?1566398303"></script>
+		
+		<script language="JavaScript1.1" type="text/javascript" src="/static/bg/shared/js/advertisement.js"></script>
+		
+	</head>
+	<body class="home ">
+
+		<!-- Google Tag Manager (noscript) -->
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W2HVJV5"
+		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+		<!-- End Google Tag Manager (noscript) -->
+
+		<div id="fb-root"></div>
+		<script>
+			(function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s); js.id = id;
+				js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=370673339733117";
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+
+<!-- DATA START  -->
+	<div class="btv-mobileads-wrapper_wrap">
+		<div class="btv-mobileads-wrapper_page">
+			<div class="main_wrapper" itemscope itemtype="http://schema.org/WebPage">
+				<div class="wrapper">
+					
+					
+					<div class="masterPositionContainer">
+						
+						<div id="" class="mastergroup site-header clear">
+							
+							<div id="" class="group  clear">
+								
+								<div id="" class="box  clear">
+									<!-- Header -->
+<header class="">
+    <nav>
+        <div class="main-nav">
+				 <!--<div id="wrapper-user-data" class="mobile">
+					<a id="redirect-to-login-page" class="signup" href="/signup/"></a>
+					<script>ga("send","event","bTV User","logged in","false");jQuery(".show_when_user_is_logged").hide();jQuery(".hide_when_user_is_logged").show();</script>
+				</div>
+               <a class="icon-icons-btv_live at-top" href="/live/">ÐÐ° Ð¶Ð¸Ð²Ð¾</a>
+                <a class="icon-icons-btv_calendar at-top" href="/programata/">ÐÑÐ¾Ð³ÑÐ°Ð¼Ð°ÑÐ°</a>-->
+
+                <div class="main-nav-wrapper">
+				<span class="mobile-menu-icon js-toggle-menu">
+                    <span class="burger-icon">
+                        <span></span>
+                    </span>
+                </span>
+
+                <a class="site-logo" href="/"><img src="/static/bg/microsites/btvnew/img/logo-btv-main-white.svg"></a>
+
+					<ul class="site-nav">
+												<li class="">
+																				<a class="" href="/all-products/">ÐÑÐµÐ´Ð°Ð²Ð°Ð½Ð¸Ñ Ð¸ ÑÐµÑÐ¸Ð°Ð»Ð¸</a>
+																			</li>
+												<li class="">
+																				<a class="" href="/movies/">Ð¤Ð¸Ð»Ð¼Ð¸</a>
+																			</li>
+												<li class="">
+																				<a class="" href="https://btvnovinite.bg/" target="_blank">ÐÐ¾Ð²Ð¸Ð½Ð¸</a>
+																			</li>
+												<li class="">
+																				<a class="" href="https://btvplus.bg/live/" target="_blank">ÐÐ° Ð¶Ð¸Ð²Ð¾</a>
+																			</li>
