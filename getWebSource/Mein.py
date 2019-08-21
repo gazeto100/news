@@ -17,7 +17,7 @@ for url in sites:
     print("\nURL:", url)
     print("--------------------------------------")
     # print the first five lines of the page source
-    f = open(str(index) + ".txt", "w")
+    f = open(str(index) + ".html", "w")
     for row in page_source[:2000]:
         if f.mode == 'w':
             f.write(row)
