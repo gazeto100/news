@@ -21,8 +21,8 @@ img1 = item[1].find('img').get('src')
 #print(title.strip())
 #print(title1.strip())
 
-#print('https://dnes.bg'+link)
-#print('https://dnes.bg'+link1)
+#print(link)
+#print(link1)
 
 #print(img)
 #print(img1)
@@ -40,3 +40,15 @@ for x in range(10):
 
 for x in range(len(img_title_1)):
     print(img_title_1[x])
+
+
+
+#import mysql.connector
+
+#mydb = mysql.connector.connect(
+#  host="localhost",
+#  user="root",
+#  passwd="",
+#)
+#mycursor = mydb.cursor()
+
