@@ -6,17 +6,48 @@ page = requests.get('http://actualno.bg')
 soup = BeautifulSoup(page.content, 'html.parser')
 
 week = soup.find(class_='wrap')
-item = week.find_all(class_='right')
+item = week.find_all('li')
 
-print (item)
+#print (item)
 
-infoItem = []
+infoImg = []
+infoTitle = []
+infoLink = []
+for x in range(7):
+    infoImg.append(item[x].find('a').get('data-image'))
 
-#for x in range(7):
-infoItem.append(item[0].find('a').get('data-image'))
-infoItem.append(item[0].find('a').get('href'))
-infoItem.append(item[0].find('a').get('title'))
+for x in range(7):
+    infoLink.append(item[x].find('a').get('href'))
 
-print(infoItem[0])
-print(infoItem[1])
-print(infoItem[2])
+for x in range(7):
+    title = item[x].find('a').get_text()
+    title= title.strip()
+    infoTitle.append(title)
+
+#for x in range(len(infoLink)):
+#    print(infoLink[x])
+
+#for x in range(len(infoTitle)):
+#    print(infoTitle[x])
+
+#for x in range(len(infoImg)):
+#    print(infoImg[x])
+
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  passwd="",
+  database="newsbg"
+)
+
+mycursor = mydb.cursor()
+for x in range(len(infoTitle)):
+    sql = "INSERT INTO actualnobg (title, subtitle, link, img) VALUES (%s, %s, %s, %s)"
+    val = (infoTitle[x], " ", infoLink[x], infoImg[x])
+    mycursor.execute(sql, val)
+
+    mydb.commit()
+
+print(mycursor.rowcount, "record inserted.")

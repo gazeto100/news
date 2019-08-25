@@ -27,28 +27,41 @@ img1 = item[1].find('img').get('src')
 #print(img)
 #print(img1)
 
-img_title_1 = []
+title = []
+subtitle = []
+link = []
+img = []
 
 dnesitem = week.find_all(class_='news-item')
 #print(dnesitem)
 
 for x in range(10):
-    img_title_1.append(dnesitem[x].find('span').get_text())
-    img_title_1.append(dnesitem[x].find('img').get('src'))
-    img_title_1.append(dnesitem[x].find('a').get('href'))
-    img_title_1.append(dnesitem[x].find(class_='news-subtitle').get_text())
+    title.append(dnesitem[x].find('span').get_text())
+    img.append(dnesitem[x].find('img').get('src'))
+    link.append(dnesitem[x].find('a').get('href'))
+    subtitle.append(dnesitem[x].find(class_='news-subtitle').get_text())
 
-for x in range(len(img_title_1)):
-    print(img_title_1[x])
+for x in range(len(title)):
+    print(title[x])
 
 
 
-#import mysql.connector
+import mysql.connector
 
-#mydb = mysql.connector.connect(
-#  host="localhost",
-#  user="root",
-#  passwd="",
-#)
-#mycursor = mydb.cursor()
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  passwd="",
+  database="newsbg"
+)
+
+mycursor = mydb.cursor()
+for x in range(len(title)):
+    sql = "INSERT INTO dnesbg (title, subtitle, link, img) VALUES (%s, %s, %s, %s)"
+    val = (title[x], subtitle[x], link[x], img[x])
+    mycursor.execute(sql, val)
+
+    mydb.commit()
+
+print(mycursor.rowcount, "record inserted.")
 
