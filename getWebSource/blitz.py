@@ -4,21 +4,34 @@ from bs4 import BeautifulSoup
 
 page = requests.get('http://blitz.bg')
 soup = BeautifulSoup(page.content, 'html.parser')
+week = soup.find(id='homeImportantScroll')
+item = week.find_all('article')
 
-week = soup.find(id_='page-container')
-#item = week.find_all('li')
-
-print (week)
+print (item)
 
 infoImg = []
 infoTitle = []
 infoLink = []
 
-#for x in range(len(infoLink)):
-#    print(infoLink[x])
+for x in range(15):
+    infoLink.append(item[x].find('a').get('href'))
 
-#for x in range(len(infoTitle)):
-#    print(infoTitle[x])
+for x in range(15):
+    infoTitle.append(item[x].find('h3').get_text())
+
+
+for x in range(15):
+    infoImg.append(item[x].find('img').get('src'))
+
+
+for x in range(len(infoLink)):
+    print(infoLink[x])
+
+for x in range(len(infoImg)):
+    print(infoImg[x])
+
+for x in range(len(infoTitle)):
+    print(infoTitle[x])
 
 #for x in range(len(infoImg)):
 #    print(infoImg[x])
