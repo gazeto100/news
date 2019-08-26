@@ -5,6 +5,7 @@ from bs4 import BeautifulSoup
 page = requests.get('http://blitz.bg')
 soup = BeautifulSoup(page.content, 'html.parser')
 week = soup.find(id='home-top-news')
+item = week.find_all('article')
 
 print(week)
 
