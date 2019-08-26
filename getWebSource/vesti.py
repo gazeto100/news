@@ -7,7 +7,7 @@ soup = BeautifulSoup(page.content, 'html.parser')
 week = soup.find(class_='main-wrapper top home')
 item = week.find_all(class_='gradient')
 
-print(item)
+#print(item)
 
 infoImg = []
 infoTitle = []
