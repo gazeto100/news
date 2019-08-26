@@ -4,24 +4,22 @@ from bs4 import BeautifulSoup
 
 page = requests.get('http://blitz.bg')
 soup = BeautifulSoup(page.content, 'html.parser')
-week = soup.find(id='homeImportantScroll')
-item = week.find_all('article')
+week = soup.find(id='home-top-news')
 
-print (item)
+print(week)
 
 infoImg = []
 infoTitle = []
 infoLink = []
 
-for x in range(15):
+for x in range(20):
     infoLink.append(item[x].find('a').get('href'))
 
-for x in range(15):
-    infoTitle.append(item[x].find('h3').get_text())
-
-
-for x in range(15):
+for x in range(20):
     infoImg.append(item[x].find('img').get('src'))
+
+for x in range(20):
+    infoTitle.append(item[x].find('img').get('alt'))
 
 
 for x in range(len(infoLink)):
@@ -32,9 +30,6 @@ for x in range(len(infoImg)):
 
 for x in range(len(infoTitle)):
     print(infoTitle[x])
-
-#for x in range(len(infoImg)):
-#    print(infoImg[x])
 
 #import mysql.connector
 

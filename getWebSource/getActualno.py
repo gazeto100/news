@@ -35,19 +35,20 @@ for x in range(7):
 
 import mysql.connector
 
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  passwd="",
-  database="newsbg"
-)
 
-mycursor = mydb.cursor()
-for x in range(len(infoTitle)):
-    sql = "INSERT INTO actualnobg (title, subtitle, link, img) VALUES (%s, %s, %s, %s)"
-    val = (infoTitle[x], " ", infoLink[x], infoImg[x])
-    mycursor.execute(sql, val)
+#mydb = mysql.connector.connect(
+#  host="localhost",
+#  user="root",
+#  passwd="",
+#  database="newsbg"
+#)
 
-    mydb.commit()
+#mycursor = mydb.cursor()
+#for x in range(len(infoTitle)):
+#    sql = "INSERT INTO actualnobg (title, subtitle, link, img) VALUES (%s, %s, %s, %s)"
+#    val = (infoTitle[x], " ", infoLink[x], infoImg[x])
+#    mycursor.execute(sql, val)
 
-print(mycursor.rowcount, "record inserted.")
+#    mydb.commit()
+
+#print(mycursor.rowcount, "record inserted.")
