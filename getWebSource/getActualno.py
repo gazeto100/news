@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 import requests
 
 from bs4 import BeautifulSoup
@@ -33,8 +35,8 @@ for x in range(7):
 #for x in range(len(infoImg)):
 #    print(infoImg[x])
 
-import mysql.connector
 
+#import mysql.connector
 
 #mydb = mysql.connector.connect(
 #  host="localhost",
@@ -44,9 +46,9 @@ import mysql.connector
 #)
 
 #mycursor = mydb.cursor()
-#for x in range(len(infoTitle)):
-#    sql = "INSERT INTO actualnobg (title, subtitle, link, img) VALUES (%s, %s, %s, %s)"
-#    val = (infoTitle[x], " ", infoLink[x], infoImg[x])
+#for x in range(len(title)):
+#    sql = "INSERT INTO dnesbg (title, subtitle, link, img) VALUES (%s, %s, %s, %s)"
+#    val = (title[x], subtitle[x], link[x], img[x])
 #    mycursor.execute(sql, val)
 
 #    mydb.commit()
