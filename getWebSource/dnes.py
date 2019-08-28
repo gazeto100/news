@@ -43,9 +43,16 @@ for x in range(10):
     link.append(dnesitem[x].find('a').get('href'))
     subtitle.append(dnesitem[x].find(class_='news-subtitle').get_text())
 
+
+
 for x in range(len(title)):
     print(title[x])
 
+for x in range(len(link)):
+    print("https://dnes.bg/"+link[x])
+
+for x in range(len(img)):
+    print(img[x])
 
 
 #import mysql.connector
@@ -59,7 +66,7 @@ for x in range(len(title)):
 
 #mycursor = mydb.cursor()
 #for x in range(len(title)):
-#    sql = "INSERT INTO dnesbg (title, subtitle, link, img) VALUES (%s, %s, %s, %s)"
+#    sql = "INSERT INTO dnesbg (title, subtitle, "https://dnes.bg/"+link, img) VALUES (%s, %s, %s, %s)"
 #    val = (title[x], subtitle[x], link[x], img[x])
 #    mycursor.execute(sql, val)
 

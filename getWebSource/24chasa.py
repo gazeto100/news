@@ -31,7 +31,7 @@ for x in range(12):
 
 
 for x in range(len(infoLink)):
-    print(infoLink[x])
+    print("https://24chasa.bg/"+infoLink[x])
 
 for x in range(len(infoImg)):
     print(infoImg[x])
@@ -51,7 +51,7 @@ for x in range(len(infoTitle)):
 
 #mycursor = mydb.cursor()
 #for x in range(len(title)):
-#    sql = "INSERT INTO dnesbg (title, subtitle, link, img) VALUES (%s, %s, %s, %s)"
+#    sql = "INSERT INTO dnesbg (title, subtitle, "https://24chasa.bg/"+link, img) VALUES (%s, %s, %s, %s)"
 #    val = (title[x], subtitle[x], link[x], img[x])
 #    mycursor.execute(sql, val)
 
