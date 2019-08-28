@@ -9,7 +9,7 @@ soup = BeautifulSoup(page.content, 'html.parser')
 week = soup.find(id='home-top-news')
 item = week.find_all('article')
 
-print(week)
+#print(week)
 
 infoImg = []
 infoTitle = []

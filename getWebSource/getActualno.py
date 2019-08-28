@@ -26,14 +26,14 @@ for x in range(7):
     title= title.strip()
     infoTitle.append(title)
 
-#for x in range(len(infoLink)):
-#    print(infoLink[x])
+for x in range(len(infoLink)):
+    print(infoLink[x])
 
-#for x in range(len(infoTitle)):
-#    print(infoTitle[x])
+for x in range(len(infoTitle)):
+    print(infoTitle[x])
 
-#for x in range(len(infoImg)):
-#    print(infoImg[x])
+for x in range(len(infoImg)):
+    print(infoImg[x])
 
 
 #import mysql.connector

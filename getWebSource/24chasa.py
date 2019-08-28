@@ -9,7 +9,7 @@ soup = BeautifulSoup(page.content, 'html.parser')
 week = soup.find(class_='new-slider-container')
 item = week.find_all('li')
 
-print(item)
+#print(item)
 
 infoImg = []
 infoTitle = []
