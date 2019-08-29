@@ -9,7 +9,7 @@ soup = BeautifulSoup(page.content, 'html.parser')
 week = soup.find(class_='list-wrapper')
 item = week.find_all(class_='item')
 
-print(item)
+#print(item)
 
 infoImg = []
 infoTitle = []
@@ -27,7 +27,7 @@ for x in range(18):
 
 
 for x in range(len(infoLink)):
-    print("https://btvnovinite.bg/"+infoLink[x])
+    print("https://btvnovinite.bg"+infoLink[x])
     print(infoTitle[x])
     print("http:" + infoImg[x])
 

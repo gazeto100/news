@@ -9,7 +9,7 @@ soup = BeautifulSoup(page.content, 'html.parser')
 week = soup.find_all(class_='text-news list-article')
 #item = week.find_all('li')
 
-print(week)
+#print(week)
 
 infoImg = []
 infoTitle = []

@@ -13,6 +13,10 @@ def some_job():
     os.system('python getActualno.py')
     os.system('python novinibg.py')
     os.system('python 24chasa.py')
+    os.system('python novabg.py')
+    os.system('python dirbg.py')
+    os.system('python dariknews.py')
+    os.system('python btv.py')
 
 scheduler = BlockingScheduler()
 scheduler.add_job(some_job, 'interval', minutes=1)

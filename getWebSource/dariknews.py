@@ -9,7 +9,7 @@ soup = BeautifulSoup(page.content, 'html.parser')
 week = soup.find(class_='col-xs-24 visible-xs')
 item = week.find_all('h2')
 
-print(item)
+#print(item)
 
 infoImg = []
 infoTitle = []
