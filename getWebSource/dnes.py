@@ -29,30 +29,30 @@ img1 = item[1].find('img').get('src')
 #print(img)
 #print(img1)
 
-title = []
-subtitle = []
-link = []
-img = []
+infoImg = []
+infoTitle = []
+infoSubTitle = []
+infoLink = []
 
 dnesitem = week.find_all(class_='news-item')
 #print(dnesitem)
 
 for x in range(10):
-    title.append(dnesitem[x].find('span').get_text())
-    img.append(dnesitem[x].find('img').get('src'))
-    link.append(dnesitem[x].find('a').get('href'))
-    subtitle.append(dnesitem[x].find(class_='news-subtitle').get_text())
+    infoTitle.append(dnesitem[x].find('span').get_text())
+    infoImg.append(dnesitem[x].find('img').get('src'))
+    infoLink.append(dnesitem[x].find('a').get('href'))
+    infoSubTitle.append(dnesitem[x].find(class_='news-subtitle').get_text())
 
 
 
-for x in range(len(title)):
-    print(title[x])
+for x in range(len(infoTitle)):
+    print(infoTitle[x])
 
-for x in range(len(link)):
-    print("https://dnes.bg/"+link[x])
+for x in range(len(infoLink)):
+    print("https://dnes.bg/"+infoLink[x])
 
-for x in range(len(img)):
-    print(img[x])
+for x in range(len(infoImg)):
+    print(infoImg[x])
 
 
 #import mysql.connector
