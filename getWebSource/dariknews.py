@@ -42,8 +42,8 @@ for x in range(len(infoLink)):
 
 #mycursor = mydb.cursor()
 #for x in range(len(title)):
-#    sql = "INSERT INTO dariknews (title, subtitle, link, img) VALUES (%s, %s, %s, %s)"
-#    val = (title[x], subtitle[x], link[x], img[x])
+#    sql = "INSERT INTO dariknews (title, subtitle, link, img, site) VALUES (%s, %s, %s, %s, %s)"
+#    val = (title[x], subtitle[x], link[x], img[x], "dariknews")
 #    mycursor.execute(sql, val)
 
 #    mydb.commit()
