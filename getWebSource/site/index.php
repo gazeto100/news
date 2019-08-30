@@ -1,4 +1,46 @@
+<style>
+    .infobox-container {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 300px;
+}
+.infobox {
+    width: 250px;
+    background: #FFFFFF;
+    padding: 10px 5px 5px 5px;
+    margin:10px;
+    color: #fff;
+    font-size: 90%;
+    height: 300px;
 
+}
+
+.infobox:hover{
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+.infobox h3 {
+    background: #3198dd;
+    width: 270px;
+    color: #fff;
+    padding: 10px 5px;
+    margin: 0;
+    font-size: 140%;
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+    left: -15px;
+}
+
+a { color: #000000; }
+a:hover { color: #FFFO00; }
+
+.title{
+    width:auto;
+    height:200px;
+}
+
+</style>
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="bg" lang="bg">
@@ -44,16 +86,17 @@ if ($res = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($res) > 0) {
         while ($row = mysqli_fetch_array($res)) {
 
-            echo "<div class='card'>";
-            echo "<div id='info'>".$row['site']."</div>";
-            echo "<hr>";
-            echo "<a target='_blank' href=".$row['link']."> <img src=".$row['img']." height='140' width='140'></a>";
-            echo "<hr>";
-            echo "<a target='_blank' href=".$row['link'].">";
-            echo "<div class='title'>".$row['title']."</div>";
-            echo "</a>";
-            echo "</div>";
-
+             echo "<div class='infobox-container'>";
+             echo "<div class='infobox'>";
+             echo "<h3><span>".$row['site']."</span></h3>";
+             echo "<hr>";
+             echo "<a target='_blank' href=".$row['link']."> <img src=".$row['img']." height='100' width='150'></a>";
+             echo "<hr>";
+             echo "<a target='_blank' href=".$row['link'].">";
+             echo "<div class='title'><p>".$row['title']."</p></div>";
+             echo "</a>";
+             echo "</div>";
+             echo "</div>";
 
         }
     }
