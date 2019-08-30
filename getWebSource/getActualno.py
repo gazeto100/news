@@ -26,31 +26,45 @@ for x in range(7):
     title= title.strip()
     infoTitle.append(title)
 
-for x in range(len(infoLink)):
-    print(infoLink[x])
+import mysql.connector
 
-for x in range(len(infoTitle)):
-    print(infoTitle[x])
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  passwd="",
+  database="newsbg"
+)
 
-for x in range(len(infoImg)):
-    print(infoImg[x])
+mycursor = mydb.cursor()
 
+mycursor.execute("SELECT title FROM dnesbg ORDER BY id DESC LIMIT 1000")
 
-#import mysql.connector
+myresult = mycursor.fetchall()
 
-#mydb = mysql.connector.connect(
-#  host="localhost",
-#  user="root",
-#  passwd="",
-#  database="newsbg"
-#)
+getRealNews = []
+dbrec  = 0
+for j in range(len(infoTitle)):
+    for x in myresult:
+        if x[0] == infoTitle[j]:
+            print(infoTitle[j])
+            dbrec = 1
 
-#mycursor = mydb.cursor()
-#for x in range(len(title)):
-#    sql = "INSERT INTO dnesbg (title, subtitle, link, img, site) VALUES (%s, %s, %s, %s, %s)"
-#    val = (title[x], subtitle[x], link[x], img[x], "actualno")
-#    mycursor.execute(sql, val)
+    if ((dbrec != 1) and len(myresult) != 0):
+        getRealNews.append(infoTitle[j])
+        dbrec = 0
 
-#    mydb.commit()
+if (len(myresult) == 0):
+    for x in range(len(infoTitle)):
+        getRealNews.append(infoTitle[x])
 
-#print(mycursor.rowcount, "record inserted.")
+for x in range(len(getRealNews)):
+    print(getRealNews[x])
+
+for x in range(len(getRealNews)):
+    sql = "INSERT INTO dnesbg (title, subtitle, link, img, site) VALUES (%s, %s, %s, %s, %s)"
+    val = (infoTitle[x], " ", infoLink[x], infoImg[x], "actualno")
+    mycursor.execute(sql, val)
+
+    mydb.commit()
+
+print(mycursor.rowcount, "record inserted.")

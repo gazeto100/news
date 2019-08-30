@@ -20,32 +20,50 @@ for x in range(14):
     infoLink.append(item[x].find('a').get('href'))
 
 for x in range(14):
-    infoTitle.append(item[x].find('a').get_text())
+    infoTitle.append(item[x].find('a').get_text().strip())
 
 for x in range(14):
     infoImg.append(item[x].find('img').get('src'))
 
+import mysql.connector
 
-for x in range(len(infoLink)):
-    print("http:"+infoLink[x])
-    print(infoTitle[x].strip())
-    print("http:"+infoImg[x])
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  passwd="",
+  database="newsbg"
+)
 
-#import mysql.connector
+mycursor = mydb.cursor()
 
-#mydb = mysql.connector.connect(
-#  host="localhost",
-#  user="root",
-#  passwd="",
-#  database="newsbg"
-#)
+mycursor.execute("SELECT title FROM dnesbg ORDER BY id DESC LIMIT 1000")
 
-#mycursor = mydb.cursor()
-#for x in range(len(title)):
-#    sql = "INSERT INTO dariknews (title, subtitle, link, img, site) VALUES (%s, %s, %s, %s, %s)"
-#    val = (title[x], subtitle[x], link[x], img[x], "dariknews")
-#    mycursor.execute(sql, val)
+myresult = mycursor.fetchall()
 
-#    mydb.commit()
+getRealNews = []
+dbrec  = 0
+for j in range(len(infoTitle)):
+    for x in myresult:
+        if x[0] == infoTitle[j]:
+            print(infoTitle[j])
+            dbrec = 1
 
-#print(mycursor.rowcount, "record inserted.")
+    if ((dbrec != 1) and len(myresult) != 0):
+        getRealNews.append(infoTitle[j])
+        dbrec = 0
+
+if (len(myresult) == 0):
+    for x in range(len(infoTitle)):
+        getRealNews.append(infoTitle[x])
+
+for x in range(len(getRealNews)):
+    print(getRealNews[x])
+
+for x in range(len(getRealNews)):
+    sql = "INSERT INTO dnesbg (title, subtitle, link, img, site) VALUES (%s, %s, %s, %s, %s)"
+    val = (infoTitle[x].strip(), " ", "http:"+infoLink[x], "http:"+infoImg[x], "dariknews")
+    mycursor.execute(sql, val)
+
+    mydb.commit()
+
+print(mycursor.rowcount, "record inserted.")

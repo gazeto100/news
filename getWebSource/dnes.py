@@ -45,32 +45,56 @@ for x in range(10):
 
 
 
-for x in range(len(infoTitle)):
-    print(infoTitle[x])
+#for x in range(len(infoTitle)):
+#    print(infoTitle[x])
 
-for x in range(len(infoLink)):
-    print("https://dnes.bg/"+infoLink[x])
+#for x in range(len(infoLink)):
+#    print("https://dnes.bg/"+infoLink[x])
 
-for x in range(len(infoImg)):
-    print(infoImg[x])
+#for x in range(len(infoImg)):
+#    print(infoImg[x])
 
 
-#import mysql.connector
+import mysql.connector
 
-#mydb = mysql.connector.connect(
-#  host="localhost",
-#  user="root",
-#  passwd="",
-#  database="newsbg"
-#)
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  passwd="",
+  database="newsbg"
+)
 
-#mycursor = mydb.cursor()
-#for x in range(len(title)):
-#    sql = "INSERT INTO dnesbg (title, subtitle, "https://dnes.bg/"+link, img, site) VALUES (%s, %s, %s, %s, %s)"
-#    val = (title[x], subtitle[x], link[x], img[x], "dnes")
-#    mycursor.execute(sql, val)
+mycursor = mydb.cursor()
 
-#    mydb.commit()
+mycursor.execute("SELECT title FROM dnesbg ORDER BY id DESC LIMIT 1000")
 
-#print(mycursor.rowcount, "record inserted.")
+myresult = mycursor.fetchall()
+
+getRealNews = []
+dbrec  = 0
+for j in range(len(infoTitle)):
+    for x in myresult:
+        if x[0] == infoTitle[j]:
+            print(infoTitle[j])
+            dbrec = 1
+
+    if ((dbrec != 1) and len(myresult) != 0):
+        getRealNews.append(infoTitle[j])
+        dbrec = 0
+
+if (len(myresult) == 0):
+    for x in range(len(infoTitle)):
+        getRealNews.append(infoTitle[x])
+
+for x in range(len(getRealNews)):
+    print(getRealNews[x])
+
+for x in range(len(getRealNews)):
+    sql = "INSERT INTO dnesbg (title, subtitle, link, img, site) VALUES (%s, %s, %s, %s, %s)"
+    val = (infoTitle[x], " ", 'https://dnes.bg'+infoLink[x], infoImg[x], "dnes")
+    mycursor.execute(sql, val)
+
+    mydb.commit()
+
+print(mycursor.rowcount, "record inserted.")
 

@@ -1,0 +1,82 @@
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="bg" lang="bg">
+
+<head>
+
+<meta charset="windows-1251" />
+ <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="box.css">
+</head>
+<body>
+
+<div class="topnav" id="myTopnav">
+  <a href="#home" class="active">Home</a>
+  <a href="#news">Nova.bg</a>
+  <a href="#contact">Dnes.bg</a>
+  <a href="#about">24chasa.bg</a>
+  <a href="#about">Novini.bg</a>
+  <a href="#about">Dir.bg</a>
+  <a href="#about">Blitz.bg</a>
+  <a href="#about">Vesti.bg</a>
+  <a href="#about">Actualno.bg</a>
+  <a href="#about">Dariknews.bg</a>
+  <a href="#about">Btv.bg</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<?php
+$link = mysqli_connect("localhost", "root", "", "newsbg");
+
+mysqli_set_charset($link,"utf8");
+if ($link === false) {
+    die("ERROR: Could not connect. "
+                .mysqli_connect_error());
+}
+
+$sql = "SELECT * FROM dnesbg ORDER BY id DESC LIMIT 100";
+if ($res = mysqli_query($link, $sql)) {
+    if (mysqli_num_rows($res) > 0) {
+        while ($row = mysqli_fetch_array($res)) {
+
+            echo "<div class='card'>";
+            echo "<div id='info'>".$row['site']."</div>";
+            echo "<hr>";
+            echo "<a target='_blank' href=".$row['link']."> <img src=".$row['img']." height='140' width='140'></a>";
+            echo "<hr>";
+            echo "<a target='_blank' href=".$row['link'].">";
+            echo "<div class='title'>".$row['title']."</div>";
+            echo "</a>";
+            echo "</div>";
+
+
+        }
+    }
+    else {
+        echo "No matching records are found.";
+    }
+}
+else {
+    echo "ERROR: Could not able to execute $sql. "
+                                .mysqli_error($link);
+}
+mysqli_close($link);
+?>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+</script>
+</body>
+</html>
