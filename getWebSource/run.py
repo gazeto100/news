@@ -19,5 +19,5 @@ def some_job():
     os.system('python btv.py')
 
 scheduler = BlockingScheduler()
-scheduler.add_job(some_job, 'interval', minutes=1)
+scheduler.add_job(some_job, 'interval', minutes=10)
 scheduler.start()
