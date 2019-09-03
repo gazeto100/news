@@ -22,9 +22,12 @@ for x in range(7):
     infoLink.append(item[x].find('a').get('href'))
 
 for x in range(7):
-    title = item[x].find('a').get_text()
-    title= title.strip()
-    infoTitle.append(title)
+    infoTitle.append(item[x].find('a').get('title'))
+
+
+for x in range(7):
+    print(infoTitle[x])
+
 
 import mysql.connector
 
@@ -46,7 +49,7 @@ dbrec  = 0
 for j in range(len(infoTitle)):
     for x in myresult:
         if x[0] == infoTitle[j]:
-            print(infoTitle[j])
+            #print(infoTitle[j])
             dbrec = 1
 
     if ((dbrec != 1) and len(myresult) != 0):
