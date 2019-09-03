@@ -1,47 +1,8 @@
 <style>
-    .infobox-container {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    width: 300px;
-}
-.infobox {
-    width: 250px;
-    background: #FFFFFF;
-    padding: 10px 5px 5px 5px;
-    margin:10px;
-    color: #fff;
-    font-size: 90%;
-    height: 300px;
-
-}
-
-.infobox:hover{
-  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-}
-.infobox h3 {
-    background: #3198dd;
-    width: 270px;
-    color: #fff;
-    padding: 10px 5px;
-    margin: 0;
-    font-size: 140%;
-    text-align: center;
-    font-weight: bold;
-    position: relative;
-    left: -15px;
-}
-
-a { color: #000000; }
-a:hover { color: #FFFO00; }
-
-.title{
-    width:auto;
-    height:200px;
-}
-
+<?php
+include ('box.css');
+?>
 </style>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="bg" lang="bg">
 
@@ -55,22 +16,9 @@ a:hover { color: #FFFO00; }
 </head>
 <body>
 
-<div class="topnav" id="myTopnav">
-  <a href="#home" class="active">Home</a>
-  <a href="#news">Nova.bg</a>
-  <a href="#contact">Dnes.bg</a>
-  <a href="#about">24chasa.bg</a>
-  <a href="#about">Novini.bg</a>
-  <a href="#about">Dir.bg</a>
-  <a href="#about">Blitz.bg</a>
-  <a href="#about">Vesti.bg</a>
-  <a href="#about">Actualno.bg</a>
-  <a href="#about">Dariknews.bg</a>
-  <a href="#about">Btv.bg</a>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <i class="fa fa-bars"></i>
-  </a>
-</div>
+<?php
+include ('menu.html');
+?>
 
 <?php
 $link = mysqli_connect("localhost", "root", "", "newsbg");
@@ -96,6 +44,7 @@ if ($res = mysqli_query($link, $sql)) {
              echo "<div class='title'><p>".$row['title']."</p></div>";
              echo "</a>";
              echo "</div>";
+             echo "<hr>";
              echo "</div>";
 
         }
