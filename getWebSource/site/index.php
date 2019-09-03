@@ -38,7 +38,7 @@ if ($res = mysqli_query($link, $sql)) {
              echo "<hr>";
              echo "<a target='_blank' href=".$row['link']."> <img src=".$row['img']." height='100' width='150'></a>";
              echo "<hr>";
-             echo "<a target='_blank' href=".$row['link'].">";
+             echo "<a target='_blank' id='title' href=".$row['link'].">";
              echo "<div class='title'>".$row['title']."</div>";
              echo "</a>";
              echo "</div>";
