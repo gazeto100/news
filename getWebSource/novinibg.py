@@ -9,7 +9,7 @@ soup = BeautifulSoup(page.content, 'html.parser')
 week = soup.find(class_='content')
 item = week.find_all('li')
 
-print(item)
+#print(item)
 
 from datetime import datetime
 now = datetime.now() # current date and time
