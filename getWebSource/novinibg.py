@@ -9,7 +9,7 @@ soup = BeautifulSoup(page.content, 'html.parser')
 week = soup.find(class_='content')
 item = week.find_all('li')
 
-#print(item)
+print(item)
 
 from datetime import datetime
 now = datetime.now() # current date and time
@@ -20,14 +20,14 @@ infoImg = []
 infoTitle = []
 infoLink = []
 
-for x in range(6):
+for x in range(5):
     infoLink.append(item[x].find('a').get('href'))
 
 
-for x in range(6):
+for x in range(5):
     infoImg.append(item[x].find('img').get('src'))
 
-for x in range(6):
+for x in range(5):
     infoTitle.append(item[x].find('h3').get_text())
 
 
