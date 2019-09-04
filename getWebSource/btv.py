@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 import requests
-
 from bs4 import BeautifulSoup
 
 page = requests.get('https://btvnovinite.bg/')
@@ -10,19 +9,23 @@ week = soup.find(class_='list-wrapper')
 item = week.find_all(class_='item')
 
 #print(item)
+from datetime import datetime
+now = datetime.now() # current date and time
+time = now.strftime("%H:%M:%S-%m.%d.%Y")
+print("date and time:",time)
 
 infoImg = []
 infoTitle = []
 infoSubTitle = []
 infoLink = []
 
-for x in range(18):
+for x in range(14):
     infoLink.append(item[x].find('a').get('href'))
 
-for x in range(18):
+for x in range(14):
     infoTitle.append(item[x].find(class_='title').get_text())
 
-for x in range(18):
+for x in range(14):
     infoImg.append(item[x].find('img').get('src'))
 
 import mysql.connector
@@ -60,8 +63,8 @@ for x in range(len(getRealNews)):
     print(getRealNews[x])
 
 for x in range(len(getRealNews)):
-    sql = "INSERT INTO dnesbg (title, subtitle, link, img, site) VALUES (%s, %s, %s, %s, %s)"
-    val = (infoTitle[x], " ", "https://btvnovinite.bg"+infoLink[x], "http:"+infoImg[x], "btvnovinite.bg")
+    sql = "INSERT INTO dnesbg (title, subtitle, link, img, site, data) VALUES (%s, %s, %s, %s, %s, %s)"
+    val = (infoTitle[x], " ", "https://btvnovinite.bg"+infoLink[x], "http:"+infoImg[x], "btvnovinite.bg", time)
     mycursor.execute(sql, val)
 
     mydb.commit()

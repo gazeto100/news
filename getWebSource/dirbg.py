@@ -10,6 +10,10 @@ week = soup.find_all(class_='text-news list-article')
 #item = week.find_all('li')
 
 #print(week)
+from datetime import datetime
+now = datetime.now() # current date and time
+time = now.strftime("%H:%M:%S-%m.%d.%Y")
+print("date and time:",time)
 
 infoImg = []
 infoTitle = []
@@ -61,8 +65,8 @@ for x in range(len(getRealNews)):
     print(getRealNews[x])
 
 for x in range(len(getRealNews)):
-    sql = "INSERT INTO dnesbg (title, subtitle, link, img, site) VALUES (%s, %s, %s, %s, %s)"
-    val = (infoTitle[x], " ", infoLink[x], infoImg[x], "dir.bg")
+    sql = "INSERT INTO dnesbg (title, subtitle, link, img, site, data) VALUES (%s, %s, %s, %s, %s, %s)"
+    val = (infoTitle[x], " ", infoLink[x], infoImg[x], "dir.bg", time)
     mycursor.execute(sql, val)
 
     mydb.commit()

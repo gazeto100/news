@@ -63,6 +63,7 @@ a:hover { color: #FFFO00; }
 }
 #title:hover{
     color:red;
+    vertical-align: text-bottom;
 }
 
 .topnav a {

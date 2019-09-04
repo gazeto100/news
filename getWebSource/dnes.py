@@ -11,6 +11,11 @@ week = soup.find(class_='homepage')
 item = week.find_all(class_='first')
 #print(item)
 
+from datetime import datetime
+now = datetime.now() # current date and time
+time = now.strftime("%H:%M:%S-%m.%d.%Y")
+print("date and time:",time)
+
 link = item[0].find('a').get('href')
 link1 = item[1].find('a').get('href')
 
@@ -90,8 +95,8 @@ for x in range(len(getRealNews)):
     print(getRealNews[x])
 
 for x in range(len(getRealNews)):
-    sql = "INSERT INTO dnesbg (title, subtitle, link, img, site) VALUES (%s, %s, %s, %s, %s)"
-    val = (infoTitle[x], " ", 'https://dnes.bg'+infoLink[x], infoImg[x], "dnes.bg")
+    sql = "INSERT INTO dnesbg (title, subtitle, link, img, site, data) VALUES (%s, %s, %s, %s, %s, %s)"
+    val = (infoTitle[x], " ", 'https://dnes.bg'+infoLink[x], infoImg[x], "dnes.bg", time)
     mycursor.execute(sql, val)
 
     mydb.commit()
