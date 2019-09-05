@@ -4,12 +4,12 @@ import requests
 
 from bs4 import BeautifulSoup
 
-page = requests.get('https://news.bg/')
+page = requests.get('https://dnevnik.bg/allnews/today/')
 soup = BeautifulSoup(page.content, 'html.parser')
-week = soup.find(class_='global-wrapper')
-#item = week.find_all('ul')
+#week = soup.find(class_='site-block')
+item = soup.find_all(class_='thumbnail')
 
-print(week)
+print(item)
 
 from datetime import datetime
 now = datetime.now() # current date and time
@@ -21,15 +21,14 @@ infoTitle = []
 infoSubTitle = []
 infoLink = []
 
-#for x in range(20):
-#    infoLink.append(item[x].find('a').get('href'))
+for x in range(50):
+    infoLink.append(item[x].find('a').get('href'))
 
-#for x in range(20):
-#    infoTitle.append(item[x].find('img').get('alt'))
+for x in range(50):
+    infoTitle.append(item[x].find('img').get('alt'))
 
-#for x in range(20):
-#    infoImg.append(item[x].find('img').get('src'))
-
+for x in range(50):
+    infoImg.append(item[x].find('img').get('src'))
 
 import mysql.connector
 
@@ -67,7 +66,7 @@ for x in range(len(getRealNews)):
 
 for x in range(len(getRealNews)):
     sql = "INSERT INTO dnesbg (title, subtitle, link, img, site, data) VALUES (%s, %s, %s, %s, %s, %s)"
-    val = (infoTitle[x], " ", infoLink[x], infoImg[x], "news.bg", time)
+    val = (infoTitle[x], " ", "https://dnevnik.bg/"+infoLink[x], infoImg[x], "dnevnik.bg", time)
     mycursor.execute(sql, val)
 
     mydb.commit()

@@ -30,7 +30,7 @@ if ($link === false) {
                 .mysqli_connect_error());
 }
 
-$sql = "SELECT * FROM dnesbg WHERE site='news.bg' ORDER BY id DESC";
+$sql = "SELECT * FROM dnesbg WHERE site='dnevnik.bg' ORDER BY id DESC";
 if ($res = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($res) > 0) {
         while ($row = mysqli_fetch_array($res)) {

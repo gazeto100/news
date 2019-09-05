@@ -16,5 +16,5 @@ os.system('python novabg.py')
 os.system('python dirbg.py')
 os.system('python dariknews.py')
 os.system('python btv.py')
-
+os.system('python dnevnik.py')
 
