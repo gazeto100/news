@@ -11,7 +11,7 @@ item = week.find_all(class_='item')
 #print(item)
 from datetime import datetime
 now = datetime.now() # current date and time
-time = now.strftime("%H:%M:%S-%m.%d.%Y")
+time = now.strftime("%H:%M:%S / %d.%m.%y")
 print("date and time:",time)
 
 infoImg = []

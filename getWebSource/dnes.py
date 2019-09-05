@@ -13,7 +13,7 @@ item = week.find_all(class_='first')
 
 from datetime import datetime
 now = datetime.now() # current date and time
-time = now.strftime("%H:%M:%S-%m.%d.%Y")
+time = now.strftime("%H:%M:%S / %d.%m.%y")
 print("date and time:",time)
 
 link = item[0].find('a').get('href')

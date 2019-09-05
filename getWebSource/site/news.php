@@ -1,3 +1,9 @@
+<style>
+<?php
+include ('box.css');
+?>
+</style>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="bg" lang="bg">
 
@@ -7,19 +13,14 @@
  <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-<?php
-include ('box.css');
-?>
-</style>
-
-    <title>Всички новини на едно място</title>
+<link rel="stylesheet" href="box.css">
 </head>
 <body>
 
 <?php
 include ('menu.html');
 ?>
+
 <?php
 $link = mysqli_connect("localhost", "root", "", "newsbg");
 
@@ -29,7 +30,7 @@ if ($link === false) {
                 .mysqli_connect_error());
 }
 
-$sql = "SELECT * FROM dnesbg ORDER BY id DESC LIMIT 50";
+$sql = "SELECT * FROM dnesbg WHERE site='news.bg' ORDER BY id DESC";
 if ($res = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($res) > 0) {
         while ($row = mysqli_fetch_array($res)) {
@@ -59,10 +60,6 @@ else {
                                 .mysqli_error($link);
 }
 mysqli_close($link);
-?>
-
-<?php
-include ('footer.html');
 ?>
 
 <script>

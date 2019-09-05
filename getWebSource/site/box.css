@@ -20,6 +20,7 @@ img:hover {
 .topnav {
   overflow: hidden;
   background-color: #00abd7;
+
 }
 .infobox-container {
     display: inline-block;
@@ -88,6 +89,7 @@ a:hover { color: #FFFO00; }
 
 .topnav .icon {
   display: none;
+
 }
 
 @media screen and (max-width: 1920px) {
@@ -95,6 +97,7 @@ a:hover { color: #FFFO00; }
   .topnav a.icon {
     float: right;
     display: block;
+
   }
 }
 
@@ -114,4 +117,20 @@ a:hover { color: #FFFO00; }
 
 hr {
     border : 0px;
+}
+
+.footer {
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #00abd7;
+   color: white;
+   text-align: center;
+   color:white;
+
+}
+
+.footer.a{
+       text-decoration: none;
+       text-color:white;
 }
