@@ -19,13 +19,13 @@ infoImg = []
 infoTitle = []
 infoLink = []
 
-for x in range(20):
+for x in range(11):
     infoLink.append(item[x].find('a').get('href'))
 
-for x in range(20):
+for x in range(11):
     infoImg.append(item[x].find('img').get('src'))
 
-for x in range(20):
+for x in range(11):
     infoTitle.append(item[x].find('img').get('alt'))
 
 

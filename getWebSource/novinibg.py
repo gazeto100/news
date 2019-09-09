@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 page = requests.get('https://novini.bg/bylgariya')
 soup = BeautifulSoup(page.content, 'html.parser')
 week = soup.find(class_='content')
-item = week.find_all('li')
+item = soup.find_all(class_='box-item')
 
 #print(item)
 
@@ -20,14 +20,14 @@ infoImg = []
 infoTitle = []
 infoLink = []
 
-for x in range(5):
+for x in range(8):
     infoLink.append(item[x].find('a').get('href'))
 
 
-for x in range(5):
+for x in range(8):
     infoImg.append(item[x].find('img').get('src'))
 
-for x in range(5):
+for x in range(8):
     infoTitle.append(item[x].find('h3').get_text())
 
 

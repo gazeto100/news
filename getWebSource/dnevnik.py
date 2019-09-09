@@ -14,20 +14,20 @@ item = soup.find_all(class_='thumbnail')
 from datetime import datetime
 now = datetime.now() # current date and time
 time = now.strftime("%H:%M:%S / %d.%m.%y")
-print("date and time:",time)
+#print("date and time:",time)
 
 infoImg = []
 infoTitle = []
 infoSubTitle = []
 infoLink = []
 
-for x in range(50):
+for x in range(10):
     infoLink.append(item[x].find('a').get('href'))
 
-for x in range(50):
+for x in range(10):
     infoTitle.append(item[x].find('img').get('alt'))
 
-for x in range(50):
+for x in range(10):
     infoImg.append(item[x].find('img').get('src'))
 
 import mysql.connector

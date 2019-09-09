@@ -21,13 +21,13 @@ infoTitle = []
 infoSubTitle = []
 infoLink = []
 
-for x in range(14):
+for x in range(11):
     infoLink.append(item[x].find('a').get('href'))
 
-for x in range(14):
+for x in range(11):
     infoTitle.append(item[x].find('a').get_text().strip())
 
-for x in range(14):
+for x in range(11):
     infoImg.append(item[x].find('img').get('src'))
 
 import mysql.connector
