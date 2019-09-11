@@ -2,10 +2,6 @@
 
 import os
 
-from IPython.utils.py3compat import execfile
-from apscheduler.schedulers.blocking import BlockingScheduler
-
-
 os.system('python dnes.py')
 os.system('python vesti.py')
 os.system('python blitz.py')

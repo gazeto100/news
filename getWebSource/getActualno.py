@@ -44,7 +44,7 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-mycursor.execute("SELECT title FROM dnesbg ORDER BY id DESC LIMIT 1000")
+mycursor.execute("SELECT title FROM dnesbg WHERE site = 'actualno.com' ORDER BY id DESC LIMIT 1000")
 
 myresult = mycursor.fetchall()
 
@@ -55,10 +55,12 @@ for j in range(len(infoTitle)):
         if x[0] == infoTitle[j]:
             #print(infoTitle[j])
             dbrec = 1
+            break
 
     if ((dbrec != 1) and len(myresult) != 0):
         getRealNews.append(infoTitle[j])
-        dbrec = 0
+        #print(infoTitle[j])
+    dbrec = 0
 
 if (len(myresult) == 0):
     for x in range(len(infoTitle)):
@@ -69,7 +71,7 @@ for x in range(len(getRealNews)):
 
 for x in range(len(getRealNews)):
     sql = "INSERT INTO dnesbg (title, subtitle, link, img, site, data) VALUES (%s, %s, %s, %s, %s, %s)"
-    val = (infoTitle[x], " ", infoLink[x], infoImg[x], "actualno.bg", time)
+    val = (infoTitle[x], " ", infoLink[x], infoImg[x], "actualno.com", time)
     mycursor.execute(sql, val)
 
     mydb.commit()

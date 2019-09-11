@@ -6,10 +6,10 @@ from bs4 import BeautifulSoup
 
 page = requests.get('https://dir.bg/latest-news')
 soup = BeautifulSoup(page.content, 'html.parser')
-week = soup.find_all(class_='text-news list-article')
-#item = week.find_all('li')
+week = soup.find(class_='main-section')
+item = week.find_all(class_='text-news list-article')
 
-#print(week)
+#print(item)
 from datetime import datetime
 now = datetime.now() # current date and time
 time = now.strftime("%H:%M:%S / %d.%m.%y")
@@ -20,14 +20,14 @@ infoTitle = []
 infoSubTitle = []
 infoLink = []
 
-for x in range(14):
-    infoLink.append(week[x].find('a').get('href'))
+for x in range(12):
+    infoLink.append(item[x].find('a').get('href'))
 
-for x in range(14):
-    infoImg.append(week[x].find('img').get('src'))
+for x in range(12):
+    infoImg.append(item[x].find('img').get('src'))
 
-for x in range(14):
-    infoTitle.append(week[x].find('a').get('title'))
+for x in range(12):
+    infoTitle.append(item[x].find('img').get('alt'))
 
 
 import mysql.connector
@@ -41,7 +41,7 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-mycursor.execute("SELECT title FROM dnesbg ORDER BY id DESC LIMIT 1000")
+mycursor.execute("SELECT title FROM dnesbg WHERE site = 'dir.bg' ORDER BY id DESC LIMIT 1000")
 
 myresult = mycursor.fetchall()
 
@@ -50,12 +50,14 @@ dbrec  = 0
 for j in range(len(infoTitle)):
     for x in myresult:
         if x[0] == infoTitle[j]:
-            print(infoTitle[j])
+            #print(infoTitle[j])
             dbrec = 1
+            break
 
     if ((dbrec != 1) and len(myresult) != 0):
         getRealNews.append(infoTitle[j])
-        dbrec = 0
+        #print(infoTitle[j])
+    dbrec = 0
 
 if (len(myresult) == 0):
     for x in range(len(infoTitle)):

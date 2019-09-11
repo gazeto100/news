@@ -21,13 +21,13 @@ infoTitle = []
 infoSubTitle = []
 infoLink = []
 
-for x in range(20):
+for x in range(8):
     infoLink.append(item[x].find('a').get('href'))
 
-for x in range(20):
+for x in range(8):
     infoTitle.append(item[x].find('img').get('alt'))
 
-for x in range(20):
+for x in range(8):
     infoImg.append(item[x].find('img').get('src'))
 
 
@@ -42,7 +42,7 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-mycursor.execute("SELECT title FROM dnesbg ORDER BY id DESC LIMIT 1000")
+mycursor.execute("SELECT title FROM dnesbg WHERE site = 'nova.bg' ORDER BY id DESC LIMIT 1000")
 
 myresult = mycursor.fetchall()
 
@@ -51,12 +51,14 @@ dbrec  = 0
 for j in range(len(infoTitle)):
     for x in myresult:
         if x[0] == infoTitle[j]:
-            print(infoTitle[j])
+            #print(infoTitle[j])
             dbrec = 1
+            break
 
     if ((dbrec != 1) and len(myresult) != 0):
         getRealNews.append(infoTitle[j])
-        dbrec = 0
+        #print(infoTitle[j])
+    dbrec = 0
 
 if (len(myresult) == 0):
     for x in range(len(infoTitle)):
