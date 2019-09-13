@@ -6,11 +6,9 @@ from bs4 import BeautifulSoup
 
 page = requests.get('http://dnes.bg')
 soup = BeautifulSoup(page.content, 'html.parser')
+dnesitem = soup.find_all(class_='news-item')
 
-week = soup.find(class_='homepage')
-dnesitem = week.find_all(class_='news-item')
-
-#print(dnesitem)
+print(dnesitem)
 
 from datetime import datetime
 now = datetime.now() # current date and time
@@ -33,11 +31,7 @@ for x in range(10):
 
 #for x in range(len(infoTitle)):
 #    print(infoTitle[x])
-
-#for x in range(len(infoLink)):
-#    print("https://dnes.bg/"+infoLink[x])
-
-#for x in range(len(infoImg)):
+#    print("https://dnes.bg/" + infoLink[x])
 #    print(infoImg[x])
 
 
@@ -60,7 +54,7 @@ getRealNews = []
 dbrec  = 0
 for j in range(len(infoTitle)):
     for x in myresult:
-        if x[0] == infoTitle[j]:
+        if x[0] in infoTitle[j]:
             #print(infoTitle[j])
             dbrec = 1
             break
@@ -83,6 +77,6 @@ for x in range(len(getRealNews)):
     mycursor.execute(sql, val)
 
     mydb.commit()
-
+getRealNews = []
 print(mycursor.rowcount, "record inserted.")
 

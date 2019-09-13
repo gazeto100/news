@@ -3,10 +3,10 @@
 import requests
 from bs4 import BeautifulSoup
 
-page = requests.get('https://btvnovinite.bg/')
+page = requests.get('https://btvnovinite.bg/novinite-ot-dnes/')
 soup = BeautifulSoup(page.content, 'html.parser')
-week = soup.find(class_='list-wrapper')
-item = week.find_all(class_='item')
+week = soup.find(class_='inner-listing-wrapper')
+item = soup.find_all(class_='item')
 
 #print(item)
 from datetime import datetime
@@ -19,14 +19,19 @@ infoTitle = []
 infoSubTitle = []
 infoLink = []
 
-for x in range(14):
+for x in range(10):
     infoLink.append(item[x].find('a').get('href'))
 
-for x in range(14):
+for x in range(10):
     infoTitle.append(item[x].find(class_='title').get_text())
 
-for x in range(14):
+for x in range(10):
     infoImg.append(item[x].find('img').get('src'))
+
+#for x in range(10):
+#    print(infoTitle[x])
+#    print("https://btvnovinite.bg"+infoLink[x])
+#    print("http:"+infoImg[x])
 
 import mysql.connector
 
@@ -39,7 +44,7 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-mycursor.execute("SELECT title FROM dnesbg WHERE site = 'btvnovinite.bg' ORDER BY id DESC LIMIT 1000")
+mycursor.execute("SELECT title FROM dnesbg WHERE site='btvnovinite.bg' ORDER BY id DESC LIMIT 1000")
 
 myresult = mycursor.fetchall()
 
@@ -47,7 +52,7 @@ getRealNews = []
 dbrec  = 0
 for j in range(len(infoTitle)):
     for x in myresult:
-        if x[0] == infoTitle[j]:
+        if x[0] in infoTitle[j]:
             #print(infoTitle[j])
             dbrec = 1
             break
@@ -63,6 +68,7 @@ if (len(myresult) == 0):
 
 for x in range(len(getRealNews)):
     print(getRealNews[x])
+
 
 for x in range(len(getRealNews)):
     sql = "INSERT INTO dnesbg (title, subtitle, link, img, site, data) VALUES (%s, %s, %s, %s, %s, %s)"

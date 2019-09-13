@@ -20,6 +20,19 @@ include ('box.css');
 <?php
 include ('menu.html');
 ?>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- novini -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2827065771523813"
+     data-ad-slot="6341314392"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 <?php
 $link = mysqli_connect("localhost", "root", "", "newsbg");
 

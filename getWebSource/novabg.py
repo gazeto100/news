@@ -46,11 +46,17 @@ mycursor.execute("SELECT title FROM dnesbg WHERE site = 'nova.bg' ORDER BY id DE
 
 myresult = mycursor.fetchall()
 
+for j in range(len(infoTitle)):
+    for word in myresult:
+        if myresult in infoTitle[j]:
+             print(infoTitle[j])
+
+
 getRealNews = []
 dbrec  = 0
 for j in range(len(infoTitle)):
     for x in myresult:
-        if x[0] == infoTitle[j]:
+        if x[0] in infoTitle[j]:
             #print(infoTitle[j])
             dbrec = 1
             break

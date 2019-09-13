@@ -49,7 +49,7 @@ getRealNews = []
 dbrec  = 0
 for j in range(len(infoTitle)):
     for x in myresult:
-        if x[0] == infoTitle[j]:
+        if x[0] in infoTitle[j]:
             #print(infoTitle[j])
             dbrec = 1
             break
@@ -68,7 +68,7 @@ for x in range(len(getRealNews)):
 
 for x in range(len(getRealNews)):
     sql = "INSERT INTO dnesbg (title, subtitle, link, img, site, data) VALUES (%s, %s, %s, %s, %s, %s)"
-    val = (infoTitle[x], " ", "https://dnevnik.bg/"+infoLink[x], infoImg[x], "dnevnik.bg", time)
+    val = (getRealNews[x], " ", "https://dnevnik.bg/"+infoLink[x], infoImg[x], "dnevnik.bg", time)
     mycursor.execute(sql, val)
 
     mydb.commit()

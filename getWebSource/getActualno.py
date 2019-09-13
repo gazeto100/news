@@ -29,8 +29,8 @@ for x in range(7):
     infoTitle.append(item[x].find('a').get('title'))
 
 
-for x in range(7):
-    print(infoTitle[x])
+#for x in range(7):
+#    print(infoTitle[x])
 
 
 import mysql.connector
@@ -44,7 +44,7 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-mycursor.execute("SELECT title FROM dnesbg WHERE site = 'actualno.com' ORDER BY id DESC LIMIT 1000")
+mycursor.execute("SELECT title FROM dnesbg WHERE site='actualno.com' ORDER BY id DESC LIMIT 1000")
 
 myresult = mycursor.fetchall()
 
@@ -52,7 +52,7 @@ getRealNews = []
 dbrec  = 0
 for j in range(len(infoTitle)):
     for x in myresult:
-        if x[0] == infoTitle[j]:
+        if x[0] in infoTitle[j]:
             #print(infoTitle[j])
             dbrec = 1
             break

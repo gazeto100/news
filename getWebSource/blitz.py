@@ -6,10 +6,10 @@ from bs4 import BeautifulSoup
 
 page = requests.get('http://blitz.bg')
 soup = BeautifulSoup(page.content, 'html.parser')
-week = soup.find(id='home-top-news')
-item = week.find_all('article')
 
-#print(week)
+item = soup.find_all(class_='simple-post')
+
+#print(item)
 from datetime import datetime
 now = datetime.now() # current date and time
 time = now.strftime("%H:%M:%S / %d.%m.%y")
@@ -19,13 +19,13 @@ infoImg = []
 infoTitle = []
 infoLink = []
 
-for x in range(11):
+for x in range(10):
     infoLink.append(item[x].find('a').get('href'))
 
-for x in range(11):
+for x in range(10):
     infoImg.append(item[x].find('img').get('src'))
 
-for x in range(11):
+for x in range(10):
     infoTitle.append(item[x].find('img').get('alt'))
 
 
@@ -48,7 +48,7 @@ getRealNews = []
 dbrec  = 0
 for j in range(len(infoTitle)):
     for x in myresult:
-        if x[0] == infoTitle[j]:
+        if x[0] in infoTitle[j]:
             #print(infoTitle[j])
             dbrec = 1
             break
