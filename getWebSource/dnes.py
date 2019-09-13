@@ -8,7 +8,7 @@ page = requests.get('http://dnes.bg')
 soup = BeautifulSoup(page.content, 'html.parser')
 dnesitem = soup.find_all(class_='news-item')
 
-print(dnesitem)
+#print(dnesitem)
 
 from datetime import datetime
 now = datetime.now() # current date and time
