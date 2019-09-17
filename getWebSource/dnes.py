@@ -6,8 +6,13 @@ from bs4 import BeautifulSoup
 
 page = requests.get('http://dnes.bg')
 soup = BeautifulSoup(page.content, 'html.parser')
-dnesitem = soup.find_all(class_='news-item')
 
+week = soup.find(class_='homepage')
+dnesitem = week.find_all(class_='news-item')
+infoImg = []
+infoTitle = []
+infoSubTitle = []
+infoLink = []
 #print(dnesitem)
 
 from datetime import datetime
@@ -31,7 +36,11 @@ for x in range(10):
 
 #for x in range(len(infoTitle)):
 #    print(infoTitle[x])
-#    print("https://dnes.bg/" + infoLink[x])
+
+#for x in range(len(infoLink)):
+#    print("https://dnes.bg/"+infoLink[x])
+
+#for x in range(len(infoImg)):
 #    print(infoImg[x])
 
 
@@ -51,32 +60,45 @@ mycursor.execute("SELECT title FROM dnesbg WHERE site = 'dnes.bg' ORDER BY id DE
 myresult = mycursor.fetchall()
 
 getRealNews = []
+getRealNewsLink = []
+getRealNewsImg = []
+
 dbrec  = 0
 for j in range(len(infoTitle)):
+    dbrec = 0
     for x in myresult:
-        if x[0] in infoTitle[j]:
-            #print(infoTitle[j])
+        if x[0] == infoTitle[j]:
+            print(infoTitle[j])
             dbrec = 1
-            break
 
     if ((dbrec != 1) and len(myresult) != 0):
         getRealNews.append(infoTitle[j])
+        getRealNewsLink.append(infoLink[j])
+        getRealNewsImg.append(infoImg[j])
         #print(infoTitle[j])
     dbrec = 0
 
 if (len(myresult) == 0):
     for x in range(len(infoTitle)):
         getRealNews.append(infoTitle[x])
+        getRealNewsLink.append(infoLink[x])
+        getRealNewsImg.append(infoImg[x])
 
+print("==============================")
 for x in range(len(getRealNews)):
-    print(getRealNews[x])
+    print(getRealNews[x] + " = " + infoTitle[x])
+#    print('https://dnes.bg'+getRealNewsLink[x] + " = " + 'https://dnes.bg'+infoLink[x])
+#    print(getRealNewsImg[x] + " = " + infoImg[x])
+
+
+
 
 for x in range(len(getRealNews)):
     sql = "INSERT INTO dnesbg (title, subtitle, link, img, site, data) VALUES (%s, %s, %s, %s, %s, %s)"
-    val = (infoTitle[x], " ", 'https://dnes.bg'+infoLink[x], infoImg[x], "dnes.bg", time)
+    val = (getRealNews[x], " ", 'https://dnes.bg'+getRealNewsLink[x], getRealNewsImg[x], "dnes.bg", time)
     mycursor.execute(sql, val)
 
     mydb.commit()
-getRealNews = []
+
 print(mycursor.rowcount, "record inserted.")
 

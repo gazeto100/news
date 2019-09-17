@@ -49,30 +49,43 @@ mycursor.execute("SELECT title FROM dnesbg WHERE site='btvnovinite.bg' ORDER BY 
 myresult = mycursor.fetchall()
 
 getRealNews = []
+getRealNewsLink = []
+getRealNewsImg = []
+
 dbrec  = 0
 for j in range(len(infoTitle)):
+    dbrec = 0
     for x in myresult:
-        if x[0] in infoTitle[j]:
-            #print(infoTitle[j])
+        if x[0] == infoTitle[j]:
+            print(infoTitle[j])
             dbrec = 1
-            break
 
     if ((dbrec != 1) and len(myresult) != 0):
         getRealNews.append(infoTitle[j])
+        getRealNewsLink.append(infoLink[j])
+        getRealNewsImg.append(infoImg[j])
         #print(infoTitle[j])
     dbrec = 0
 
 if (len(myresult) == 0):
     for x in range(len(infoTitle)):
         getRealNews.append(infoTitle[x])
+        getRealNewsLink.append(infoLink[x])
+        getRealNewsImg.append(infoImg[x])
 
+print("==============================")
 for x in range(len(getRealNews)):
-    print(getRealNews[x])
+    print(getRealNews[x] + " = " + infoTitle[x])
+#    print('https://dnes.bg'+getRealNewsLink[x] + " = " + 'https://dnes.bg'+infoLink[x])
+#    print(getRealNewsImg[x] + " = " + infoImg[x])
+
+
 
 
 for x in range(len(getRealNews)):
     sql = "INSERT INTO dnesbg (title, subtitle, link, img, site, data) VALUES (%s, %s, %s, %s, %s, %s)"
-    val = (infoTitle[x], " ", "https://btvnovinite.bg"+infoLink[x], "http:"+infoImg[x], "btvnovinite.bg", time)
+    val = (getRealNews[x], " ", "https://btvnovinite.bg"+getRealNewsLink[x], "http:"+getRealNewsImg[x], "btvnovinite.bg", time)
+
     mycursor.execute(sql, val)
 
     mydb.commit()
