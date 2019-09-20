@@ -62,6 +62,10 @@ else {
 mysqli_close($link);
 ?>
 
+<?php
+include ('footer.html');
+?>
+
 <script>
 function myFunction() {
   var x = document.getElementById("myTopnav");
