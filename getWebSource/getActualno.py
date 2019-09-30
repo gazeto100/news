@@ -4,11 +4,12 @@ import requests
 
 from bs4 import BeautifulSoup
 
-page = requests.get('http://actualno.bg')
+page = requests.get('http://actualno.com/today')
 soup = BeautifulSoup(page.content, 'html.parser')
 
-week = soup.find(class_='wrap')
-item = week.find_all('li')
+week = soup.find(class_='tab')
+item = week.find_all('figure')
+
 
 #print (item)
 from datetime import datetime
@@ -19,13 +20,13 @@ print("date and time:",time)
 infoImg = []
 infoTitle = []
 infoLink = []
-for x in range(7):
+for x in range(11):
     infoImg.append(item[x].find('a').get('data-image'))
 
-for x in range(7):
+for x in range(11):
     infoLink.append(item[x].find('a').get('href'))
 
-for x in range(7):
+for x in range(11):
     infoTitle.append(item[x].find('a').get('title'))
 
 
@@ -44,7 +45,7 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-mycursor.execute("SELECT title FROM dnesbg WHERE site='actualno.com' ORDER BY id DESC LIMIT 1000")
+mycursor.execute("SELECT title FROM dnesbg ORDER BY id DESC LIMIT 1000")
 
 myresult = mycursor.fetchall()
 
@@ -57,7 +58,7 @@ for j in range(len(infoTitle)):
     dbrec = 0
     for x in myresult:
         if x[0] == infoTitle[j]:
-            print(infoTitle[j])
+            #print(infoTitle[j])
             dbrec = 1
 
     if ((dbrec != 1) and len(myresult) != 0):

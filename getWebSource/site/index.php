@@ -20,8 +20,10 @@ include ('box.css');
 <?php
 include ('menu.html');
 ?>
-<img src="logo.png">
 
+<?php
+include ('logo.html');
+?>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- novini -->
 <ins class="adsbygoogle"

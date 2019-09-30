@@ -68,7 +68,7 @@ for j in range(len(infoTitle)):
     dbrec = 0
     for x in myresult:
         if x[0] == infoTitle[j]:
-            print(infoTitle[j])
+            #print(infoTitle[j])
             dbrec = 1
 
     if ((dbrec != 1) and len(myresult) != 0):

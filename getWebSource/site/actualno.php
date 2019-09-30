@@ -20,7 +20,9 @@ include ('box.css');
 <?php
 include ('menu.html');
 ?>
-
+<?php
+include ('logo.html');
+?>
 <?php
 $link = mysqli_connect("localhost", "root", "", "newsbg");
 

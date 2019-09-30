@@ -19,7 +19,9 @@ include ('box.css');
 <?php
 include ('menu.html');
 ?>
-
+<?php
+include ('logo.html');
+?>
 Контакти:
 <p>
 Emeil: info@vsichkinovinibg.com

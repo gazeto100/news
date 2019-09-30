@@ -7,9 +7,9 @@ from bs4 import BeautifulSoup
 page = requests.get('https://dir.bg/latest-news')
 soup = BeautifulSoup(page.content, 'html.parser')
 week = soup.find(class_='main-section')
-item = week.find_all(class_='text-news list-article')
+item = week.find_all(class_='img-wrapper')
 
-#print(item)
+print(item)
 from datetime import datetime
 now = datetime.now() # current date and time
 time = now.strftime("%H:%M:%S / %d.%m.%y")
@@ -21,13 +21,13 @@ infoSubTitle = []
 infoLink = []
 
 for x in range(12):
-    infoLink.append(item[x].find('a').get('href'))
+    infoLink.append(item[x].get('href'))
 
 for x in range(12):
     infoImg.append(item[x].find('img').get('src'))
 
 for x in range(12):
-    infoTitle.append(item[x].find('img').get('alt'))
+    infoTitle.append(item[x].get('title'))
 
 
 import mysql.connector
@@ -54,7 +54,7 @@ for j in range(len(infoTitle)):
     dbrec = 0
     for x in myresult:
         if x[0] == infoTitle[j]:
-            print(infoTitle[j])
+            #print(infoTitle[j])
             dbrec = 1
 
     if ((dbrec != 1) and len(myresult) != 0):
@@ -78,11 +78,10 @@ for x in range(len(getRealNews)):
 
 
 
-
+print(len(getRealNews))
 for x in range(len(getRealNews)):
     sql = "INSERT INTO dnesbg (title, subtitle, link, img, site, data) VALUES (%s, %s, %s, %s, %s, %s)"
     val = (getRealNews[x], " ", getRealNewsLink[x], getRealNewsImg[x], "dir.bg", time)
-
     mycursor.execute(sql, val)
 
     mydb.commit()
