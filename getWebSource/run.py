@@ -19,5 +19,5 @@ def some_job():
     os.system('python dnevnik.py')
 
 scheduler = BlockingScheduler()
-scheduler.add_job(some_job, 'interval', minutes=3)
+scheduler.add_job(some_job, 'interval', minutes=10)
 scheduler.start()

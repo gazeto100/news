@@ -1,7 +1,8 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 import requests
-
+import mysql.connector
 from bs4 import BeautifulSoup
 
 page = requests.get('https://dir.bg/latest-news')
@@ -9,7 +10,7 @@ soup = BeautifulSoup(page.content, 'html.parser')
 week = soup.find(class_='main-section')
 item = week.find_all(class_='img-wrapper')
 
-print(item)
+#print(item)
 from datetime import datetime
 now = datetime.now() # current date and time
 time = now.strftime("%H:%M:%S / %d.%m.%y")
@@ -30,13 +31,13 @@ for x in range(12):
     infoTitle.append(item[x].get('title'))
 
 
-import mysql.connector
-
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
   passwd="",
-  database="newsbg"
+  database="newsbg",
+  use_unicode=True,
+  charset="utf8"
 )
 
 mycursor = mydb.cursor()
@@ -61,7 +62,6 @@ for j in range(len(infoTitle)):
         getRealNews.append(infoTitle[j])
         getRealNewsLink.append(infoLink[j])
         getRealNewsImg.append(infoImg[j])
-        #print(infoTitle[j])
     dbrec = 0
 
 if (len(myresult) == 0):
@@ -72,9 +72,9 @@ if (len(myresult) == 0):
 
 print("==============================")
 for x in range(len(getRealNews)):
-    print(getRealNews[x] + " = " + infoTitle[x])
-#    print('https://dnes.bg'+getRealNewsLink[x] + " = " + 'https://dnes.bg'+infoLink[x])
-#    print(getRealNewsImg[x] + " = " + infoImg[x])
+    print(getRealNews[x])
+#    print(getRealNewsLink[x])
+#    print(getRealNewsImg[x])
 
 
 

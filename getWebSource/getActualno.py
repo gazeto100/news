@@ -40,7 +40,9 @@ mydb = mysql.connector.connect(
   host="localhost",
   user="root",
   passwd="",
-  database="newsbg"
+  database="newsbg",
+  use_unicode=True,
+  charset="utf8"
 )
 
 mycursor = mydb.cursor()
