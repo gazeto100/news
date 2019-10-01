@@ -21,7 +21,7 @@ infoImg = []
 infoTitle = []
 infoLink = []
 for x in range(11):
-    infoImg.append(item[x].find('a').get('data-image'))
+    infoImg.append(item[x].find('img').get('data-src'))
 
 for x in range(11):
     infoLink.append(item[x].find('a').get('href'))
@@ -67,7 +67,6 @@ for j in range(len(infoTitle)):
         getRealNews.append(infoTitle[j])
         getRealNewsLink.append(infoLink[j])
         getRealNewsImg.append(infoImg[j])
-        #print(infoTitle[j])
     dbrec = 0
 
 if (len(myresult) == 0):
@@ -82,13 +81,10 @@ for x in range(len(getRealNews)):
 #    print('https://dnes.bg'+getRealNewsLink[x] + " = " + 'https://dnes.bg'+infoLink[x])
 #    print(getRealNewsImg[x] + " = " + infoImg[x])
 
-
-
-
 for x in range(len(getRealNews)):
     sql = "INSERT INTO dnesbg (title, subtitle, link, img, site, data) VALUES (%s, %s, %s, %s, %s, %s)"
     val = (getRealNews[x], " ", getRealNewsLink[x], getRealNewsImg[x], "actualno.com", time)
-
+    print(val)
     mycursor.execute(sql, val)
 
     mydb.commit()
