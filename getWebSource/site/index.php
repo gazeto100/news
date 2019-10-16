@@ -3,11 +3,17 @@
 
 <head>
 
-<meta charset="windows-1251" />
- <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
+    <meta charset="windows-1251" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+
+
+    </script>
+
 <?php
 include ('box.css');
 ?>
@@ -24,17 +30,7 @@ include ('menu.html');
 <?php
 include ('logo.html');
 ?>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- novini -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-2827065771523813"
-     data-ad-slot="6341314392"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+
 
 <?php
 $link = mysqli_connect("localhost", "root", "", "newsbg");
@@ -45,7 +41,7 @@ if ($link === false) {
                 .mysqli_connect_error());
 }
 
-$sql = "SELECT * FROM dnesbg ORDER BY id DESC LIMIT 50";
+$sql = "SELECT * FROM dnesbg ORDER BY id DESC LIMIT 100";
 if ($res = mysqli_query($link, $sql)) {
     if (mysqli_num_rows($res) > 0) {
         while ($row = mysqli_fetch_array($res)) {

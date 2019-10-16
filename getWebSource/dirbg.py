@@ -28,7 +28,7 @@ for x in range(12):
     infoImg.append(item[x].find('img').get('src'))
 
 for x in range(12):
-    infoTitle.append(item[x].get('title'))
+    infoTitle.append(item[x].find('img').get('alt'))
 
 
 mydb = mysql.connector.connect(

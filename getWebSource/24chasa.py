@@ -4,7 +4,7 @@ import requests
 
 from bs4 import BeautifulSoup
 
-page = requests.get('https://24chasa.bg/')
+page = requests.get('https://www.24chasa.bg/')
 soup = BeautifulSoup(page.content, 'html.parser')
 week = soup.find(class_='new-slider-container')
 item = week.find_all('li')
