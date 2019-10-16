@@ -3,6 +3,17 @@
 
 <head>
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-150241568-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-150241568-1');
+</script>
+
+
     <meta charset="windows-1251" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,6 +22,7 @@
     <script type="text/javascript" src="jquery.js"></script>
     <script type="text/javascript">
 
+    jQuery.timeago("2008-07-17");
 
     </script>
 
@@ -89,3 +101,4 @@ function myFunction() {
 </script>
 </body>
 </html>
+

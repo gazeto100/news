@@ -87,7 +87,7 @@ for x in range(len(getRealNews)):
 
 for x in range(len(getRealNews)):
     sql = "INSERT INTO dnesbg (title, subtitle, link, img, site, data) VALUES (%s, %s, %s, %s, %s, %s)"
-    val = (getRealNews[x], " ", 'https://24chasa.bg'+getRealNewsLink[x], getRealNewsImg[x], "24chasa.bg", time)
+    val = (getRealNews[x], " ", 'https://www.24chasa.bg/'+getRealNewsLink[x], getRealNewsImg[x], "24chasa.bg", time)
     mycursor.execute(sql, val)
 
     mydb.commit()
